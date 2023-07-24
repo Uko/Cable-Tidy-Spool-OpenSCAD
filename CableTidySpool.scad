@@ -77,9 +77,10 @@ module cable_half_slot() {
         [C/2, -chamf],
         [C/2, -offset],
         [cable_hole/2, -offset - (cable_hole - C) / 2 / tan(50)],
+        // tan(25) thing has no good reason to exist
         [cable_hole/2, -offset - (cable_hole - C) / 2 / tan(50) - (C+0.2) * tan(25)],
-        [C/2, -offset - (cable_hole - C) / tan(50) - (C+0.2) * tan(25)],
-        [0, -offset - (cable_hole - C) / tan(50) - (C+0.2) * tan(25) ],
+        [2, -offset - (cable_hole - C/2 - 2) / tan(50) - (C+0.2) * tan(25)],
+        [0, -offset - (cable_hole - C/2 - 2) / tan(50) - (C+0.2) * tan(25) ],
     ]);
 }
 
