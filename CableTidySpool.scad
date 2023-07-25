@@ -1,13 +1,22 @@
+// Height
+H = 20; // [10:200]
+
+// Width
+W = 25; // [10:200]
+
+// Length
+L = 70; // [50:200]
+
+// Cable Diameter
+C = 3; // [1:0.5:6]
+
+// Rim Height
+R = 2; // [5]
 
 
-H = 45;
-W = 35;
-L = 120;
-C = 4;
-R = 3;
-
-ridge_angle = 50;
-lip = 0.964;
+/* [Hidden] */
+rim_angle = 50;
+lip = 0.964; // straight part of the rim
 th=1.67;
 
 
@@ -18,8 +27,8 @@ module sidecut() {
     [R+th+R, -H/2],
     [R, -H/2],
     [R, -H/2 + lip],
-    [0, -H/2 + lip + R * tan(ridge_angle)],
-    [0,  H/2 - lip - R * tan(ridge_angle)],
+    [0, -H/2 + lip + R * tan(rim_angle)],
+    [0,  H/2 - lip - R * tan(rim_angle)],
     [R,  H/2 - lip],
     [R,  H/2],
     [R+th+R, H/2],
