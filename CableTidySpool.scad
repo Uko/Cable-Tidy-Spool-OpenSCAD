@@ -7,8 +7,8 @@ W = 25; // [10:200]
 // Length
 L = 70; // [50:200]
 
-// Cable Diameter
-C = 3; // [1:0.5:6]
+// Cable Diameter (30 = 3mm)
+C = 30; // [10:5:60]
 
 // Rim Height
 R = 2; // [5]
@@ -20,7 +20,7 @@ lip = 0.964; // straight part of the rim
 th=1.67;
 
 
-
+c = C/10; // to have mm
 
 module sidecut() {
     polygon([
@@ -76,20 +76,20 @@ module half_spool() {
 
 module cable_half_slot() {
     chamf = 0.6;
-    cable_hole = (C+th) / sin(45);    
+    cable_hole = (c+th) / sin(45);    
     offset = R - 0.5;
     
     rotate(90)
     polygon([
         [0,0],
-        [C/2 + chamf, 0],
-        [C/2, -chamf],
-        [C/2, -offset],
-        [cable_hole/2, -offset - (cable_hole - C) / 2 / tan(50)],
+        [c/2 + chamf, 0],
+        [c/2, -chamf],
+        [c/2, -offset],
+        [cable_hole/2, -offset - (cable_hole - c) / 2 / tan(50)],
         // tan(25) thing has no good reason to exist
-        [cable_hole/2, -offset - (cable_hole - C) / 2 / tan(50) - (C+0.2) * tan(25)],
-        [2, -offset - (cable_hole - C/2 - 2) / tan(50) - (C+0.2) * tan(25)],
-        [0, -offset - (cable_hole - C/2 - 2) / tan(50) - (C+0.2) * tan(25) ],
+        [cable_hole/2, -offset - (cable_hole - c) / 2 / tan(50) - (c+0.2) * tan(25)],
+        [2, -offset - (cable_hole - c/2 - 2) / tan(50) - (c+0.2) * tan(25)],
+        [0, -offset - (cable_hole - c/2 - 2) / tan(50) - (c+0.2) * tan(25) ],
     ]);
 }
 
